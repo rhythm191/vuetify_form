@@ -7,17 +7,20 @@
     </v-toolbar>
 
     <v-content>
+      <AddTodoForm/>
       <TodoList/>
     </v-content>
   </v-app>
 </template>
 
 <script>
+import AddTodoForm from "./components/AddTodoForm";
 import TodoList from "./components/TodoList";
 
 export default {
   name: "App",
   components: {
+    AddTodoForm,
     TodoList
   },
   data() {
