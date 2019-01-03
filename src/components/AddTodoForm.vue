@@ -2,7 +2,7 @@
   <form @submit="submit">
     <v-container>
       <v-layout row wrap>
-        <v-flex xs12 sm6>
+        <v-flex xs12>
           <v-text-field v-model="todoText" :counter="30" label="todo"></v-text-field>
           <v-btn color="success" @click="submit">Add</v-btn>
         </v-flex>

@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    id_counter: 0,
     todos: []
   },
   getters: {
@@ -14,7 +15,13 @@ export default new Vuex.Store({
   },
   mutations: {
     addTodo(state, text) {
-      state.todos.push({ text: text, done: false });
+      const id = state.id_counter;
+      state.id_counter += 1;
+      state.todos.push({ id, text, done: false });
+    },
+    toggleDone(state, id) {
+      const todo = this.getters.getTodoById(id);
+      todo.done = !todo.done;
     }
   },
   actions: {}

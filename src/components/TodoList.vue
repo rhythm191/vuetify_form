@@ -1,15 +1,16 @@
 <template>
-  <div class="todo-list">
-    <v-container>
-      <v-layout row wrap>
-        <v-flex xs12 sm6>
-          <ul>
-            <li v-for="todo in todos" :key="todo.id">{{ todo.text }}</li>
-          </ul>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </div>
+  <v-list subheader>
+    <v-subheader>Todo list</v-subheader>
+    <v-list-tile v-for="todo in todos" :key="todo.id" @click="toggleDone(todo.id)">
+      <v-list-tile-content>
+        <v-list-tile-title v-text="todo.text">{{ todo.text }}</v-list-tile-title>
+      </v-list-tile-content>
+
+      <v-list-tile-action>
+        <v-icon v-if="todo.done">done_outline</v-icon>
+      </v-list-tile-action>
+    </v-list-tile>
+  </v-list>
 </template>
 
 <script>
@@ -18,6 +19,11 @@ export default {
   computed: {
     todos() {
       return this.$store.state.todos;
+    }
+  },
+  methods: {
+    toggleDone(id) {
+      this.$store.commit("toggleDone", id);
     }
   }
 };
