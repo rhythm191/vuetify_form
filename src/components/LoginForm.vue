@@ -4,8 +4,8 @@
       <v-layout row wrap>
         <v-flex xs12>
           <form action="/login" method="POST">
-            <v-text-field v-model="email" type="email" label="Email"></v-text-field>
-            <v-text-field v-model="password" type="password" label="Password"></v-text-field>
+            <v-text-field v-model="email" type="email" label="Email" required></v-text-field>
+            <v-text-field v-model="password" type="password" label="Password" required></v-text-field>
             <v-btn block color="success" type="submit">ログイン</v-btn>
           </form>
 

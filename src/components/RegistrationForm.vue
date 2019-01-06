@@ -4,9 +4,9 @@
       <v-layout row wrap>
         <v-flex xs12>
           <form action="/users/registrations" method="POST">
-            <v-text-field v-model="email" type="email" label="Email"></v-text-field>
+            <v-text-field v-model="email" type="email" label="Email" required></v-text-field>
 
-            <v-select :items="birthes" label="生まれ年"></v-select>
+            <v-select :items="birthes" label="生まれ年" required></v-select>
 
             <v-radio-group v-model="status" row>
               <v-radio label="在職中" value="user_applicant_attributes_status_2000"></v-radio>
@@ -51,21 +51,21 @@
               <v-radio label="まだ考えていない" value="user_applicant_attributes_intent_job_change_id_3202"></v-radio>
             </v-radio-group>
 
-            <v-text-field v-model="password" type="password" label="Password"></v-text-field>
-            <v-checkbox v-model="checkbox" :label="`提出コードを企業に匿名開示してオファーを受ける`"></v-checkbox>
+            <v-text-field v-model="password" type="password" label="Password" required></v-text-field>
+            <v-checkbox v-model="code_open_permission" :label="`提出コードを企業に匿名開示してオファーを受ける`" checked></v-checkbox>
             <v-btn block color="success" type="submit">登録</v-btn>
           </form>
 
           <p>or ソーシャルログイン</p>
           <div id="social-login">
             <v-btn block href="/oauth/github" color="grey darken-4">
-              <span class="social-btn">GitHubログイン</span>
+              <span class="social-btn">GitHubアカウントでログイン</span>
             </v-btn>
             <v-btn block href="/oauth/twitter" color="light-blue accent-3">
-              <span class="social-btn">Twitterログイン</span>
+              <span class="social-btn">Twitterアカウントでログイン</span>
             </v-btn>
             <v-btn block href="/oauth/facebook" color="light-blue darken-4">
-              <span class="social-btn">Facebookログイン</span>
+              <span class="social-btn">Facebookアカウントでログイン</span>
             </v-btn>
           </div>
         </v-flex>
@@ -93,7 +93,8 @@ export default {
       graduates_years: [2018, 2019, 2020, 2021],
       graduates_monthes: Array.from(Array(12).keys()).map(e => e + 1 + "月"),
       birthes: [1939, 2019],
-      languages: ["Ruby", "Java", "C#", "JavaScript", "Python"]
+      languages: ["Ruby", "Java", "C#", "JavaScript", "Python"],
+      code_open_permission: true
     };
   }
 };
