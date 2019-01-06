@@ -10,15 +10,10 @@
 
             <v-spacer></v-spacer>
 
-            <v-btn icon>
-              <v-icon>add</v-icon>
-            </v-btn>
-
-            <!-- <v-btn icon>
-            <v-icon>more_vert</v-icon>
-            </v-btn>-->
+            <v-btn flat to="/login">ログイン</v-btn>
+            <v-btn flat to="/registration">登録</v-btn>
           </v-toolbar>
-          <LoginForm></LoginForm>
+          <router-view></router-view>
         </v-card>
       </v-flex>
     </v-layout>
