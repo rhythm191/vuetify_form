@@ -14,6 +14,32 @@
               <v-radio label="学生" value="user_applicant_attributes_status_2002"></v-radio>
             </v-radio-group>
 
+            <transition-group name="details">
+              <div v-if="status === 'user_applicant_attributes_status_2000'" key="details">
+                <v-layout wrap>
+                  <v-flex xs12 sm7>
+                    <div>
+                      <v-select :items="experienced_fields" label="経験分野"></v-select>
+                    </div>
+                  </v-flex>
+                  <v-flex xs12 sm4 offset-sm1>
+                    <v-select :items="experienced_years" label="経験年数"></v-select>
+                  </v-flex>
+                </v-layout>
+              </div>
+
+              <div v-if="status === 'user_applicant_attributes_status_2002'" key="details">
+                <v-layout>
+                  <v-flex xs7>
+                    <v-select :items="graduates_years" label="卒業予定年"></v-select>
+                  </v-flex>
+                  <v-flex xs4 offset-xs1>
+                    <v-select :items="graduates_monthes" label="卒業予定月"></v-select>
+                  </v-flex>
+                </v-layout>
+              </div>
+            </transition-group>
+
             <v-select :items="languages" label="主な使用言語"></v-select>
 
             <v-radio-group v-model="intent_job_changed" row>
@@ -53,9 +79,33 @@ export default {
   name: "RegistrationForm",
   data() {
     return {
+      email: "",
+      password: "",
+      status: "",
+      experienced_fields: ["Web開発", "スマートフォンアプリ開発", "組み込み系"],
+      experienced_years: [
+        "なし",
+        "１年未満",
+        "実務１年以上",
+        "実務３年以上",
+        "実務５年以上"
+      ],
+      graduates_years: [2018, 2019, 2020, 2021],
+      graduates_monthes: Array.from(Array(12).keys()).map(e => e + 1 + "月"),
       birthes: [1939, 2019],
       languages: ["Ruby", "Java", "C#", "JavaScript", "Python"]
     };
   }
 };
 </script>
+
+<style lang="scss">
+.details-enter-active,
+.details-leave-active {
+  transition: opacity 0.5s;
+}
+.details-enter,
+.details-leave-to {
+  opacity: 0;
+}
+</style>

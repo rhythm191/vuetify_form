@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-layout row>
-      <v-flex xs12 sm6 offset-sm3>
+      <v-flex xs12>
         <v-card>
           <v-toolbar color="indigo" dark>
             <v-toolbar-side-icon></v-toolbar-side-icon>

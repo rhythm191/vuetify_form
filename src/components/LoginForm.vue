@@ -27,6 +27,19 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "LoginForm",
+  data() {
+    return {
+      email: "",
+      password: ""
+    };
+  }
+};
+</script>
+
+
 
 <style lang="scss">
 .social-btn {
