@@ -6,7 +6,7 @@
           <v-toolbar color="indigo" dark>
             <v-toolbar-side-icon></v-toolbar-side-icon>
 
-            <v-toolbar-title>Todo</v-toolbar-title>
+            <v-toolbar-title>form</v-toolbar-title>
 
             <v-spacer></v-spacer>
 
@@ -18,8 +18,7 @@
             <v-icon>more_vert</v-icon>
             </v-btn>-->
           </v-toolbar>
-          <AddTodoForm/>
-          <TodoList/>
+          <LoginForm></LoginForm>
         </v-card>
       </v-flex>
     </v-layout>
@@ -27,14 +26,12 @@
 </template>
 
 <script>
-import AddTodoForm from "./components/AddTodoForm";
-import TodoList from "./components/TodoList";
+import LoginForm from "./components/LoginForm";
 
 export default {
   name: "App",
   components: {
-    AddTodoForm,
-    TodoList
+    LoginForm
   },
   data() {
     return {
